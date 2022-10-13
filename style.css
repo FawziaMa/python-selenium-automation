@@ -1,0 +1,24 @@
+.headers {
+    color: darkgreen;
+    background-color: beige;
+    font-size: 20px;
+    font-family: "Arial Narrow";
+
+}
+.title {
+    color: brown;
+    font-size: 30px;
+    background-image: url("yellow.png");
+}
+
+#ingred_list{
+    background-color: ivory;
+    color: darkolivegreen;
+    font-size: 15px;
+}
+
+#steps{
+    background-color: bisque;
+    color: darkred;
+    font-size: 15px;
+}

@@ -2,6 +2,7 @@ import time
 
 from selenium.webdriver.common.by import By
 from behave import given, when, then
+from selenium.webdriver.support import expected_conditions as EC
 
 
 @then('Sign in header and email input fields are visible')
@@ -13,3 +14,8 @@ def sign_in_ui(context):
     actual_result = context.driver.find_element(By.XPATH, "//div[@class= 'a-row a-spacing-base']").text
     expected_result = 'Email or mobile phone number'
     assert expected_result == actual_result, f'Error: Expected {expected_result}, but got {actual_result}'
+
+
+@then('Verify Sign in page opened')
+def verify_sign_in_opened(context):
+    context.driver.wait.until(EC.url_contains('ap/signin'))

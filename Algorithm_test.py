@@ -60,40 +60,76 @@
 # Given a string. Split it into two equal parts. Swap these parts and return the result.
 # If the string has odd characters, the first part should be one character greater than the second part.
 # Example: string = 'bbbbbcaaaaa'. Result = ‘aaaaabbbbbc’.
-
-def split_string(test_string):
-    length = len(test_string)
-    add = 0
-    if length % 2:
-        add = 1
-    for i in test_string:
-        string1 = test_string[len(test_string)//2:]
-        string2 = test_string[:len(test_string)//2]
-    return(string1, string2)
-
-
-test_string = 'bbbbbcaaaaa'
-
-print(split_string(test_string))
-
-
-# Unique Characters in String
-# Given a string, determine if it consists of all unique characters.
-# For example, the string 'abcde' has all unique characters and should return True.
-# The string 'aabcde' contains duplicate characters and should return False.
-# Hint: https://www.w3schools.com/python/python_sets.asp
 #
-def digital_root(n):
-    d = {}
-    for i in n:
-        if i in d:
-            d[i] += 1
-            return True
-        else:
-            return False
+# def split_string(test_string):
+#     length = len(test_string)
+#     add = 0
+#     if length % 2:
+#         add = 1
+#     for i in test_string:
+#         string1 = test_string[len(test_string)//2:]
+#         string2 = test_string[:len(test_string)//2]
+#     return(string1, string2)
+#
+#
+# test_string = 'bbbbbcaaaaa'
+#
+# print(split_string(test_string))
+#
+#
+# # Unique Characters in String
+# # Given a string, determine if it consists of all unique characters.
+# # For example, the string 'abcde' has all unique characters and should return True.
+# # The string 'aabcde' contains duplicate characters and should return False.
+# # Hint: https://www.w3schools.com/python/python_sets.asp
+# #
+# def digital_root(n):
+#     d = {}
+#     for i in n:
+#         if i in d:
+#             d[i] += 1
+#             return True
+#         else:
+#             return False
+#
+# # return len(set(n)) == len(n)
+#
+#
+# n = 'abcde'
+# print(digital_root(n))
 
-# return len(set(n)) == len(n)
+
+#PROBLEM 6
+# Below The Arithmetical Mean
+# When given a list, the program should return a list of all the elements below the original list’s arithmetical mean. The
+# arithmetical mean is the sum of all elements divided by the number of elements.
+# Example: [1, 3, 5, 6, 4, 10, 2, 3] (The arithmetical mean is 4.25),
+# Return [1, 3, 4, 2, 3]
+
+def arthmetical_mean(list):
+    list = [1, 3, 5, 6, 4, 10, 2, 3]
+    list_mean = (sum(list)/len(list))
+    print(list_mean)
+    list2 = []
+    for num in list:
+        if num < list_mean:
+            list2.append(num)
+    return list2
+print(arthmetical_mean(list))
 
 
-n = 'abccde'
-print(digital_root(n))
+#PROBLEM 7
+# Two Lowest Elements
+# When given a list of elements, find the two lowest elements. They can be equal to each other or different.
+# Example: [198, 3, 4, 9, 10, 9, 2], Return: 2, 3
+
+def lowest_elements(list):
+    list = [198, 3, 4, 9, 10, 9, 2]
+    list.sort()
+    return list[0:2]
+
+print(lowest_elements(list))
+
+
+
+

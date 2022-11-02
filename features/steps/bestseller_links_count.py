@@ -22,6 +22,9 @@ def links_on_page(context):
 @then('Clicks on each top link and verifies that correct page opens')
 def header_links(context):
     all_links = context.driver.find_elements(*HEADER_LINKS)
-    for links in all_links:
-        title = links.find_element(*LINK_TITLES)
-        assert title, 'Error, link titles not found'
+    for i in range(len(all_links)):
+        link_to_click = context.find_element(*HEADER_LINKS)[i]
+        link_text = link_to_click.text
+        link_to_click.click()
+        header_text = context.driver.find_elements(*LINK_TITLES)
+        assert link_text in header_text, f'Expected {link_text} to be in {header_text}'

@@ -11,6 +11,12 @@ def open_deal_page(context, product_id):
     context.driver.get(f'https://www.amazon.com/gp/product/{product_id}/')
 
 
+@given('User searches for product')
+def search_for_product(context):
+    context.driver.find_element(By.ID, '#twotabsearchtextbox').send_keys("coffee")
+
+
+
 @then('Verify color match description')
 def verify_color_match(context):
     expected_colors = ['Click to select Black',
@@ -26,3 +32,5 @@ def verify_color_match(context):
         color_received = context.driver.find_elements(*current_color)
         actual_colors += [color_received]
     assert expected_colors == actual_colors, f'Error'
+
+

@@ -16,6 +16,6 @@ def sign_in_ui(context):
     assert expected_result == actual_result, f'Error: Expected {expected_result}, but got {actual_result}'
 
 
-@then('Verify Sign in page opened')
+@then('Verify Sign In page is opened')
 def verify_sign_in_opened(context):
-    context.driver.wait.until(EC.url_contains('ap/signin'))
+    context.app.sign_in_page.verify_sign_in_opened()

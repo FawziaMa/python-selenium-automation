@@ -7,8 +7,12 @@ Feature: Test Scenarios for Search functionality
     And Click on search icon
     Then Product results for Shoes are shown
 
-#  Scenario: Verify search shows product name and image
-#    Given Open Amazon page
-#    When Input coffee into search field
-#    And Click on search icon
-#    Then Verify image and product name
+  Scenario: Verify search shows product name and image
+    Given Open Amazon page
+    When Input coffee into search field
+    And Click on search icon
+    Then Product results for coffee are shown
+
+
+  Scenario:
+

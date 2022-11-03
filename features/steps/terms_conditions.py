@@ -7,7 +7,7 @@ from selenium.webdriver.support import expected_conditions as EC
 PRIVACY_LINK = (By. CSS_SELECTOR, 'a[href="https://www.amazon.com/privacy"]')
 
 
-@given('Open Amazon T&C page')
+@given('Open T&C page')
 def terms_conditions(context):
     context.driver.get('https://www.amazon.com/gp/help/customer/display.html?nodeId=GLSBYFE9MGKKQXXM')
 

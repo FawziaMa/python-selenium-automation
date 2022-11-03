@@ -14,3 +14,6 @@ def add_product_to_cart(context):
     context.driver.find_element(By. XPATH, "//div[@class= 'a-row a-size-base a-color-base']").click()
 
 
+@then('Verify {department} department is selected')
+def verify_department(context, department):
+    context.app.search_results.verify_department(department)

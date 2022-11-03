@@ -28,7 +28,12 @@ def click_orders(context):
     context.app.main_page.click_orders()
 
 
+@when('Select department by value {selection_value}')
+def select_department(context, selection_value):
+    context.app.main_page.select_department(selection_value)
+
+
 @then('Cart icon shows {expected_cart_count}')
 def single_item_in_cart(context, expected_cart_count):
     actual_result = context.driver.find_element(By. ID, "nav-cart-count")
-    assert actual_result == expected_cart_count 
+    assert actual_result == expected_cart_count

@@ -137,18 +137,31 @@
 # You are required to solve it without allocating additional storage (operate with the input list).
 # Example: [7, 3, 5, 6, 4, 10, 3, 2] Return [6, 4, 10, 2, 7, 3, 5, 3]
 
-def even_odd(A):
-    even = 0
-    odd = len(A) - 1
-    while even < odd:
-        if A[even] % 2 == 0:
-            even += 1
+
+def even_first(array):
+    index = 0
+    for i in range(0, len(array)):
+        if array[index] % 2 != 0:
+            array.append(array[index])
+            array.remove(array[index])
         else:
-            A[even], A[odd] = A[odd], A[even]
-            odd -= 1
-    return A
-A = [7, 3, 5, 6, 4, 10, 3, 2]
-print(even_odd(A))
+            index += 1
+    return array
+
+array = [7, 3, 5, 6, 4, 10, 3, 2]
+print(even_first(array))
+# def even_odd(A):
+#     even = 0
+#     odd = len(A) - 1
+#     while even < odd:
+#         if A[even] % 2 == 0:
+#             even += 1
+#         else:
+#             A[even], A[odd] = A[odd], A[even]
+#             odd -= 1
+#     return A
+# A = [7, 3, 5, 6, 4, 10, 3, 2]
+# print(even_odd(A))
 
 # PROBLEM 9
 # Increment a Number
@@ -156,16 +169,39 @@ print(even_odd(A))
 # updates the list to represent the integer D + 1.
 # For example, if the input is [1, 2, 9] then you should update the array to [1, 3, 0].
 
-def increment(S):
-    if S[-1] == 9:
-        S[-1] = 0
-        S[1] += 1
-    elif S[-1] < 9:
-        S[-1] = S[-1] + 1
-    else:
-        S[0] = S[0] + 1
-    return S
-S = [9,9,8]
-print(increment(S))
+# def increment(S):
+#     if S[i] >= 9:
+#         S[i] = 0
+#         S[i - 1] += 1
+#     elif S[i - 1] < 9:
+#         S[i - 1] += 1
+#     else S[i - 2] :
+#         S[i -2] += 1
+
+#     return S
+#
+# S = [9,9,9]
+# print(increment(S))
 
 
+def plus_one(arr):
+    arr[-1] += 1
+    for i in reversed(range(1, len(arr))):
+        if arr[i] != 10:
+            break
+        arr[i] = 0
+        arr[i - 1] += 1
+
+    if arr[0] == 10:
+        arr[0] = 1
+        arr.append(0)
+
+    return arr
+
+test1 = [1,2,5]
+test2 = [1,2,9]
+test3 = [9,9,9]
+
+print(plus_one(test1))
+print(plus_one(test2))
+print(plus_one(test3))

@@ -156,16 +156,16 @@ print(even_odd(A))
 # updates the list to represent the integer D + 1.
 # For example, if the input is [1, 2, 9] then you should update the array to [1, 3, 0].
 
-# def increment(S):
-#     if S[-1] == 9:
-#         S[-1] = 0
-#         S[1] += 1
-#     elif S[-1] < 9:
-#         S[-1] = S[-1] + 1
-#     else:
-#         S[0] = S[0] + 1
-#     return S
-# S = [9,9,8]
-# print(increment(S))
+def increment(S):
+    if S[-1] == 9:
+        S[-1] = 0
+        S[1] += 1
+    elif S[-1] < 9:
+        S[-1] = S[-1] + 1
+    else:
+        S[0] = S[0] + 1
+    return S
+S = [9,9,8]
+print(increment(S))
 
 

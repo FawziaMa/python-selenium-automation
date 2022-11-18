@@ -138,70 +138,154 @@
 # Example: [7, 3, 5, 6, 4, 10, 3, 2] Return [6, 4, 10, 2, 7, 3, 5, 3]
 
 
-def even_first(array):
-    index = 0
-    for i in range(0, len(array)):
-        if array[index] % 2 != 0:
-            array.append(array[index])
-            array.remove(array[index])
-        else:
-            index += 1
-    return array
-
-array = [7, 3, 5, 6, 4, 10, 3, 2]
-print(even_first(array))
-# def even_odd(A):
-#     even = 0
-#     odd = len(A) - 1
-#     while even < odd:
-#         if A[even] % 2 == 0:
-#             even += 1
+# def even_first(array):
+#     index = 0
+#     for i in range(0, len(array)):
+#         if array[index] % 2 != 0:
+#             array.append(array[index])
+#             array.remove(array[index])
 #         else:
-#             A[even], A[odd] = A[odd], A[even]
-#             odd -= 1
-#     return A
-# A = [7, 3, 5, 6, 4, 10, 3, 2]
-# print(even_odd(A))
-
-# PROBLEM 9
-# Increment a Number
-# Write a program that takes as input a list of digits encoding a nonnegative decimal integer D and
-# updates the list to represent the integer D + 1.
-# For example, if the input is [1, 2, 9] then you should update the array to [1, 3, 0].
-
-# def increment(S):
-#     if S[i] >= 9:
-#         S[i] = 0
-#         S[i - 1] += 1
-#     elif S[i - 1] < 9:
-#         S[i - 1] += 1
-#     else S[i - 2] :
-#         S[i -2] += 1
-
-#     return S
+#             index += 1
+#     return array
 #
-# S = [9,9,9]
-# print(increment(S))
+# array = [7, 3, 5, 6, 4, 10, 3, 2]
+# print(even_first(array))
+# # def even_odd(A):
+# #     even = 0
+# #     odd = len(A) - 1
+# #     while even < odd:
+# #         if A[even] % 2 == 0:
+# #             even += 1
+# #         else:
+# #             A[even], A[odd] = A[odd], A[even]
+# #             odd -= 1
+# #     return A
+# # A = [7, 3, 5, 6, 4, 10, 3, 2]
+# # print(even_odd(A))
+#
+# # PROBLEM 9
+# # Increment a Number
+# # Write a program that takes as input a list of digits encoding a nonnegative decimal integer D and
+# # updates the list to represent the integer D + 1.
+# # For example, if the input is [1, 2, 9] then you should update the array to [1, 3, 0].
+#
+# # def increment(S):
+# #     if S[i] >= 9:
+# #         S[i] = 0
+# #         S[i - 1] += 1
+# #     elif S[i - 1] < 9:
+# #         S[i - 1] += 1
+# #     else S[i - 2] :
+# #         S[i -2] += 1
+#
+# #     return S
+# #
+# # S = [9,9,9]
+# # print(increment(S))
+#
+#
+# def plus_one(arr):
+#     arr[-1] += 1
+#     for i in reversed(range(1, len(arr))):
+#         if arr[i] != 10:
+#             break
+#         arr[i] = 0
+#         arr[i - 1] += 1
+#
+#     if arr[0] == 10:
+#         arr[0] = 1
+#         arr.append(0)
+#
+#     return arr
+#
+# test1 = [1,2,5]
+# test2 = [1,2,9]
+# test3 = [9,9,9]
+#
+# print(plus_one(test1))
+# print(plus_one(test2))
+# print(plus_one(test3))
 
 
-def plus_one(arr):
-    arr[-1] += 1
-    for i in reversed(range(1, len(arr))):
-        if arr[i] != 10:
-            break
-        arr[i] = 0
-        arr[i - 1] += 1
+#Selection Sort
+# Implement the selection sort algorithm that is sorting in descending order.
+def descendingSelectionSort(MyList):
+    for i in range(len(MyList) - 1):
+        minimum = i
+        for j in range(len(MyList)-1, i, -1):
+            if(MyList[j] > MyList[minimum]):
+                minimum = j
+        if(minimum != i):
+            MyList[i], MyList[minimum] = MyList[minimum], MyList[i]
+    return MyList
 
-    if arr[0] == 10:
-        arr[0] = 1
-        arr.append(0)
 
-    return arr
+MyList = [1, 3, 19, 2]
+print(descendingSelectionSort(MyList))
 
-test1 = [1,2,5]
-test2 = [1,2,9]
-test3 = [9,9,9]
+# Bubble Sort
+# Implement the bubble sort algorithm that is sorting in descending order.
 
-print(plus_one(test1))
-print(plus_one(test2))
-print(plus_one(test3))
+def bubble_Sort(array):
+    for i in range(len(array)):
+        for j in range(0, len(array) - i - 1):
+            if array[j] < array[j + 1]:
+                array[j], array[j + 1] = array[j + 1], array[j]
+
+
+number = [ 4, 10, 7, 9 ];
+bubble_Sort(number)
+print(number)
+
+
+# Insertion Sort
+# Implement the insertion sort algorithm that is sorting in descending order.
+def insertionSort(array):
+    for step in range(1, len(array)):
+        key = array[step]
+        j = step - 1
+        while j >= 0 and key > array[j]:
+            array[j + 1] = array[j]
+            j = j - 1
+
+        array[j + 1] = key
+
+
+list = [9, 3, 7, 8, 0]
+insertionSort(list)
+print(list)
+
+# Merge Sort
+# Implement the merge sort algorithm that is sorting in descending order.
+def merge_sort(arr):
+    if len(arr) <= 1:
+        return arr
+    middle = len(arr) // 2
+    return merge_arrays(merge_sort(arr[:middle]), merge_sort(arr[middle:]))
+
+
+def merge_arrays(left_arr, right_arr):
+    merged_arr = []
+    i = j = 0
+    while i < len(left_arr) or j <len(right_arr):
+        if i == len(left_arr):
+            merged_arr.append(right_arr[j])
+            j += 1
+            continue
+        if j == len(right_arr):
+            merged_arr.append(left_arr[i])
+            i += 1
+            continue
+
+        if left_arr[i] >= right_arr[j]:
+            merged_arr.append(left_arr[i])
+            i += 1
+        else:
+            merged_arr.append(right_arr[j])
+            j += 1
+    return merged_arr
+
+
+
+test_list = [3, 7, 9, 11]
+print(merge_sort(test_list))
